@@ -6,7 +6,7 @@
 #include <memlayout.h>
 #include <assert.h>
 
-// 使用你的内核中定义的宏来进行地址转换
+// 使用内核中定义的宏来进行地址转换
 #ifndef page2kva
 #define page2kva(page) (KADDR(page2pa(page)))
 #endif
@@ -50,7 +50,7 @@ void slub_init(void) {
         const char *src = predefined_name;
         int j = 0;
         
-        // 安全地复制名称
+        // 复制名称
         while (*src && j < sizeof(cache->name) - 1) {
             *dst++ = *src++;
             j++;
