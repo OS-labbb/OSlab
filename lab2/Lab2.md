@@ -12,6 +12,8 @@
 static void
 default_init(void) //初始化
  {
+//free_list:双向链表，存储所有空闲内存块的首页帧
+//nr_free:当前空闲页帧的总数量
     list_init(&free_list);//初始化空闲链表
     nr_free = 0;//空闲页数清零
 }
@@ -1242,3 +1244,4 @@ void test_bulk_operations(void) {
 | 内存保护与共享 |	更完整的内存隔离实现、Capability-based访问控制、内存映射文件（Memory-mapped Files）的完整机制 |
 | 现代体系结构	|非统一内存访问（NUMA）架构下的内存管理、内存热插拔、内存去重（KSM）技术 |
 | 系统安全	| 地址空间布局随机化（ASLR）、数据执行保护（DEP/NX）等在页表中的实现 |
+
