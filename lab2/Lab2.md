@@ -75,7 +75,7 @@ default_alloc_pages(size_t n) {
     list_entry_t *le = &free_list;
     //首次适应算法：找到第一个足够大的空闲块
     while ((le = list_next(le)) != &free_list) {
-        struct Page *p = le2page(le, page_link);
+        struct Page *p = le2page(le, page_link);//从链表节点反向获取对应的struct Page 指针
         if (p->property >= n) {
             page = p;
             break;
@@ -1244,4 +1244,5 @@ void test_bulk_operations(void) {
 | 内存保护与共享 |	更完整的内存隔离实现、Capability-based访问控制、内存映射文件（Memory-mapped Files）的完整机制 |
 | 现代体系结构	|非统一内存访问（NUMA）架构下的内存管理、内存热插拔、内存去重（KSM）技术 |
 | 系统安全	| 地址空间布局随机化（ASLR）、数据执行保护（DEP/NX）等在页表中的实现 |
+
 
